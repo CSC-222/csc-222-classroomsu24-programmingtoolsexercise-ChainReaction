@@ -41,7 +41,7 @@ public class ChainReactionMain {
             System.out.println("*  CAN YOU COMPLETE THE CHAIN?  *");
             System.out.println("*                               *");
             System.out.println("*********************************\n");
-			System.out.println("Tutorial..................press 0");
+            System.out.println("Tutorial..................press 0");
             System.out.println("Beginner..................press 1");
             System.out.println("Pro.......................press 2");
             System.out.println("Superstar.................press 3");
@@ -90,8 +90,8 @@ public class ChainReactionMain {
     }
 
     public static void cleanData(ArrayList<ArrayList<String>> wordSets){
-	/**Add Code here to clean dataset**/
-	    
+    /**Add Code here to clean dataset**/
+
         validate(wordSets);
     }
     public static void validate(ArrayList<ArrayList<String>> wordSets){
