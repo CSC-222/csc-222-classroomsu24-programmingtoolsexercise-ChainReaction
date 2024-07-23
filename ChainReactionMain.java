@@ -90,10 +90,45 @@ public class ChainReactionMain {
     }
 
     public static void cleanData(ArrayList<ArrayList<String>> wordSets){
-    /**Add Code here to clean dataset**/
+        // Sentinel value to check if any words were removed
+        boolean removedWords;
 
+        // Remove empty sets and sets with only one word
+        removedWords = wordSets.removeIf(wordSet -> wordSet.isEmpty() || wordSet.size() < 2);
+
+        // Create list of root words
+        ArrayList<String> rootWords = new ArrayList<>();
+        for (ArrayList<String> wordSet : wordSets) {
+            rootWords.add(wordSet.get(0));
+        }
+
+        // Remove words that are not also a root word
+        for (ArrayList<String> wordSet : wordSets) {
+            // Iterate in reverse in order to remove words without affecting the index
+            for (int i = wordSet.size() - 1; i >= 0; i--) {
+                String word = wordSet.get(i);
+
+                // Check if current word is not a root word
+                if (!rootWords.contains(word)) {
+                    // Indicate a word was removed
+                    removedWords = true;
+
+                    // Remove word from current set
+                    wordSet.remove(i);
+                }
+            }
+        }
+
+        // If any words were removed, recursively clean the data
+        if (removedWords) {
+            cleanData(wordSets);
+            return;
+        }
+
+        // Finished cleaning data so validate
         validate(wordSets);
     }
+
     public static void validate(ArrayList<ArrayList<String>> wordSets){
         final int wordCountValid = 8033;
         final int wordSetCountValid = 2334;
