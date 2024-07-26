@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-/**Enter your name here**/
+/Yolani Dolmo/
 
 public class ChainReactionMain {
 
